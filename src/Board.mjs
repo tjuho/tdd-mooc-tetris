@@ -11,9 +11,13 @@ export class Board {
   }
   
   drop(block){
-    this.block = block;
-    this.blockx = parseInt(this.width/2);
-    this.blocky = 0;
+    if (this.block != undefined){
+      throw "already falling"
+    } else {
+      this.block = block;
+      this.blockx = parseInt(this.width/2);
+      this.blocky = 0;
+    }
   }
   
   tick(){
