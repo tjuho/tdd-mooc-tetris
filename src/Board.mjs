@@ -2,7 +2,9 @@ export class Board {
   width;
   height;
   block;
-
+  blocky;
+  blockx;
+  
   constructor(width, height) {
     this.width = width;
     this.height = height;
