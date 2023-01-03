@@ -5,21 +5,20 @@ export class RotatingShape {
 
   constructor(shape) {
     let temp = shape.replaceAll(' ', '').split('\n');
-    this.height = temp.length
-    this.width = temp[0].length
+    this.height = temp.length;
+    this.width = temp[0].length;
     this.shape = []
     for (let r = 0; r < this.height; r++){
       this.shape[r] = [];
       for (let c = 0; c < this.width; c++){
-        console.log(temp[r]);
         this.shape[r][c] = temp[r].charAt(c);
       }
     }
-    console.log(this.shape);
   }
   
-  rotateRigth(){
-    
+  rotateRight(){
+    this.shape = this.shape[0].map((val, index) => this.shape.map(row => row[index]).reverse())
+    return this
   }
   
   toString() {
@@ -28,7 +27,7 @@ export class RotatingShape {
       for (let c = 0; c < this.width; c++){
         res += this.shape[r][c];
       }
-      res += "\n"
+      res += "\n";
     }
     return res;
   }
