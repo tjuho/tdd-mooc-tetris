@@ -12,8 +12,12 @@ export class Board {
   
   drop(block){
     this.block = block;
-    this.blockx = this.width/2;
+    this.blockx = parseInt(this.width/2);
     this.blocky = 0;
+  }
+  
+  tick(){
+    this.blocky += 1;
   }
 
   toString() {
