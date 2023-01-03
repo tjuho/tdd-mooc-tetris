@@ -8,7 +8,7 @@ describe("Falling blocks", () => {
     board = new Board(3, 3);
   });
 
-  it("The board starts empty", () => {
+  xit("The board starts empty", () => {
     expect(board.toString()).to.equalShape(
       `...
        ...

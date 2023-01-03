@@ -9,8 +9,9 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.boardState = Array(height).fill(Array(width))
+    this.boardState = [];
     for (let r = 0; r < this.height; r++){
+      this.boardState[r] = [];
       for (let c = 0; c < this.width; c++){
         this.boardState[r][c] = "."
       }
@@ -32,20 +33,27 @@ export class Board {
   }
   
   tick(){
-    if (this.blocky == this.height) {
-      this.block = undefined
+    if (this.block && this.blocky == this.height-1) {
+      console.log(this.blocky, this.blockx)
+      console.log(this.boardState);
+      this.boardState[this.blocky][this.blockx] = this.block.color;
+      console.log(this.boardState);
+      this.block = undefined;
+      this.blocky = 0;
+      this.blockx = parseInt(this.width/2);
     }
     this.blocky += 1;
+    console.log(this.toString());
   }
 
   toString() {
     let res = "";
     for (let r = 0; r < this.height; r++){
       for (let c = 0; c < this.width; c++){
-        if (this.blockx == c && this.blocky == r){
+        if (this.block && this.blockx == c && this.blocky == r){
           res += this.block.color;
         } else {
-          res += this.boardState[r][c] ;
+          res += this.boardState[r][c];
         }
       }
       res += "\n"
