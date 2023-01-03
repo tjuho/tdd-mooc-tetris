@@ -15,6 +15,6 @@ export class Board {
       }
       res += "\n"
     }
-    return "TODO";
+    return res;
   }
 }
