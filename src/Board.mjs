@@ -10,6 +10,8 @@ export class Board {
   
   drop(block){
     this.block = block;
+    this.blockx = this.width/2;
+    this.blocky = 0;
   }
 
   toString() {
