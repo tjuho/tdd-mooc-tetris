@@ -18,6 +18,13 @@ export class Board {
     }
   }
   
+  canFall(){
+    if (!this.hasFalling()){
+      return false;
+    }
+    return this.height-1 > this.blocky && this.boardState[this.blocky+1][this.blockx] == ".";
+  }
+  
   hasFalling(){
     return this.block != undefined;
   }
@@ -33,7 +40,7 @@ export class Board {
   }
   
   tick(){
-    if (this.block && this.blocky == this.height-1) {
+    if (!this.canFall()) {
       console.log(this.blocky, this.blockx)
       console.log(this.boardState);
       this.boardState[this.blocky][this.blockx] = this.block.color;
