@@ -6,7 +6,11 @@ export class RotatingShape {
   constructor(shape) {
     let temp = shape.replaceAll(' ', '').split('\n');
     this.height = temp.length;
-    this.width = temp[0].length;
+    if (this.height == 0){
+      this.width = 0
+    } else {
+      this.width = temp[0].length;
+    }
     this.shape = []
     for (let r = 0; r < this.height; r++){
       this.shape[r] = [];
@@ -14,11 +18,25 @@ export class RotatingShape {
         this.shape[r][c] = temp[r].charAt(c);
       }
     }
+    console.log(this.shape);
   }
   
   rotateRight(){
-    this.shape = this.shape[0].map((val, index) => this.shape.map(row => row[index]).reverse())
-    return this
+    let shape = this.shape[0].map((val, index) => this.shape.map(row => row[index]).reverse())
+    let rs = new RotatingShape("")
+    rs.shape = shape;
+    rs.height=this.width;
+    rs.width = this.height;
+    return rs
+  }
+  
+  rotateLeft(){
+    let shape = this.shape[0].map((val, index) => this.shape.map(row => row[row.length-1-index]));
+    let rs = new RotatingShape("")
+    rs.shape = shape;
+    rs.height=this.width;
+    rs.width = this.height;
+    return rs
   }
   
   toString() {
