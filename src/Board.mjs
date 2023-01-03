@@ -4,10 +4,17 @@ export class Board {
   block;
   blocky;
   blockx;
+  boardState;
   
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.boardState = Array(height).fill(Array(width))
+    for (let r = 0; r < this.height; r++){
+      for (let c = 0; c < this.width; c++){
+        this.boardState[r][c] = "."
+      }
+    }
   }
   
   hasFalling(){
@@ -25,6 +32,9 @@ export class Board {
   }
   
   tick(){
+    if (this.blocky == this.height) {
+      this.block = undefined
+    }
     this.blocky += 1;
   }
 
