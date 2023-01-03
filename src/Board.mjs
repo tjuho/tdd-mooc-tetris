@@ -45,7 +45,7 @@ export class Board {
         if (this.blockx == c && this.blocky == r){
           res += this.block.color;
         } else {
-          res += "." ;
+          res += this.boardState[r][c] ;
         }
       }
       res += "\n"
