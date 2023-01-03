@@ -10,6 +10,10 @@ export class Board {
     this.height = height;
   }
   
+  hasFalling(){
+    return this.block != undefined;
+  }
+  
   drop(block){
     if (this.block != undefined){
       throw "already falling"
