@@ -20,7 +20,11 @@ export class Board {
     let res = "";
     for (let r = 0; r < this.height; r++){
       for (let c = 0; c < this.width; c++){
-        res += "."
+        if (this.blockx == c && this.blocky == r){
+          res += this.block.color;
+        } else {
+          res += "." ;
+        }
       }
       res += "\n"
     }

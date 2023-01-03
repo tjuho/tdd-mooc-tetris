@@ -29,7 +29,6 @@ describe("Falling blocks", () => {
       );
     });
 
-  /*
     xit("it moves down one row per tick", () => {
       board.tick();
 
@@ -47,6 +46,7 @@ describe("Falling blocks", () => {
       expect(after).to.equal(before);
     });
   });
+  /*
   */
 
   /*
