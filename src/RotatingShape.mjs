@@ -21,19 +21,17 @@ export class RotatingShape {
     console.log(this.shape);
   }
   
-  rotateRight(){
-    let shape = this.shape[0].map((val, index) => this.shape.map(row => row[index]).reverse())
+  rotateRight(){ 
     let rs = new RotatingShape("")
-    rs.shape = shape;
+    rs.shape = this.shape[0].map((val, index) => this.shape.map(row => row[index]).reverse());
     rs.height=this.width;
     rs.width = this.height;
     return rs
   }
   
   rotateLeft(){
-    let shape = this.shape[0].map((val, index) => this.shape.map(row => row[row.length-1-index]));
     let rs = new RotatingShape("")
-    rs.shape = shape;
+    rs.shape = this.shape[0].map((val, index) => this.shape.map(row => row[row.length-1-index]));
     rs.height=this.width;
     rs.width = this.height;
     return rs
