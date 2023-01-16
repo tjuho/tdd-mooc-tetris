@@ -6,6 +6,9 @@ export class Tetromino {
     },
     rotateRight: function() {
       return Tetromino.T_SHAPE270;
+    },
+    rotateLeft: function() {
+      return Tetromino.T_SHAPE90;
     }
   };
   static T_SHAPE270 = {
