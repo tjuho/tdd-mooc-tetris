@@ -5,4 +5,9 @@ export class Tetromino {
       return ".T.\nTTT\n...\n"
     }
   };
+  static T_SHAPE270 = {
+    toString: function() {
+      return ".T.\n.TT\n.T.\n"
+    }
+  }
 }
