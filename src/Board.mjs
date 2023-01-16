@@ -1,6 +1,9 @@
 export class Board {
   width;
   height;
+  tetromino;
+  tetrominox;
+  tetrominoy;
   block;
   blocky;
   blockx;
