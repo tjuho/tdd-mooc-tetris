@@ -196,4 +196,116 @@ export class Tetromino {
       return res;
     }
   };
+  static S_SHAPE = {
+    color: "S",
+    size: 3,
+    matrix: [[false, false, false], [false, true, true],[true, true, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.S_SHAPE90;
+    },
+    rotateLeft: function() {
+      return Tetromino.S_SHAPE90;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
+  static S_SHAPE90 = {
+    color: "S",
+    size: 3,
+    matrix: [[true, false, false], [true, true, false],[false, true, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.S_SHAPE;
+    },
+    rotateLeft: function() {
+      return Tetromino.S_SHAPE;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
+  static Z_SHAPE = {
+    color: "Z",
+    size: 3,
+    matrix: [[false, false, false], [true, true, false],[false, true, true]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.Z_SHAPE90;
+    },
+    rotateLeft: function() {
+      return Tetromino.Z_SHAPE90;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
+  static Z_SHAPE90 = {
+    color: "Z",
+    size: 3,
+    matrix: [[false, false, true], [false, true, true],[false, true, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.Z_SHAPE;
+    },
+    rotateLeft: function() {
+      return Tetromino.Z_SHAPE;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
 }
