@@ -120,10 +120,38 @@ export class Tetromino {
       return this.matrix[y][x];
     },
     rotateRight: function() {
-      return Tetromino.T_SHAPE270;
+      return Tetromino.I_SHAPE90;
     },
     rotateLeft: function() {
-      return Tetromino.T_SHAPE90;
+      return Tetromino.I_SHAPE90;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
+  static I_SHAPE90 = {
+    color: "I",
+    size: 4,
+    matrix: [[false, false, true, false], [false, false, true, false], [false, false, true, false], [false, false, true, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.I_SHAPE;
+    },
+    rotateLeft: function() {
+      return Tetromino.I_SHAPE;
     },
     toString: function() {
       let res = "";
