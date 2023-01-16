@@ -168,4 +168,32 @@ export class Tetromino {
       return res;
     }
   };
+  static O_SHAPE = {
+    color: "O",
+    size: 2,
+    matrix: [[true, true], [true, true]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.O_SHAPE;
+    },
+    rotateLeft: function() {
+      return Tetromino.O_SHAPE;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
 }
