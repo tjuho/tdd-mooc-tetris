@@ -22,7 +22,7 @@ describe("The T shape", () => {
        ...`
     );
   });
-  xit("can be rotated right/clockwise", () => {
+  it("can be rotated right/clockwise", () => {
     expect(shape.rotateRight().toString()).to.equalShape(
       `.T.
        .TT
