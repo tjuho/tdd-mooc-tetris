@@ -36,13 +36,13 @@ export class Board {
     return this.tetromino != undefined;
   }
   
-  drop(block){
+  drop(tetromino){
     if (this.hasFalling()){
       throw "already falling"
     } else {
-      this.block = block;
-      this.blockx = parseInt(this.width/2);
-      this.blocky = 0;
+      this.tetromino = tetromino
+      this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2);
+      this.tetrominoy = 0;
     }
   }
   
