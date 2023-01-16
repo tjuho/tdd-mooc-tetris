@@ -41,7 +41,7 @@ export class Board {
       throw "already falling"
     } else {
       this.tetromino = tetromino
-      this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2);
+      this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2) - 1;
       this.tetrominoy = 0;
     }
   }
@@ -60,13 +60,16 @@ export class Board {
     let res = "";
     for (let r = 0; r < this.height; r++){
       for (let c = 0; c < this.width; c++){
-        if (this.block && this.blockx == c && this.blocky == r){
-          res += this.block.color;
+          console.log(c,r);
+        if (r >= this.tetrominoy && r < this.tetrominoy + this.tetromino.size 
+        && c >= this.tetrominox && c < this.tetrominox + this.tetromino.size 
+        && this.tetromino.matrix[r-this.tetrominoy][c-this.tetrominox]){
+          res += this.tetromino.color;
         } else {
-          res += this.boardState[r][c];
+          res += ".";
         }
       }
-      res += "\n"
+      res += "\n";
     }
     return res;
   }
