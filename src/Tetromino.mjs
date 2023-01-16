@@ -1,8 +1,25 @@
 import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
   static T_SHAPE = {
+    color: "T",
+    size: 3,
+    matrix: [[false, true, false], [true, true, true],[false, false, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
     toString: function() {
-      return ".T.\nTTT\n...\n";
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
     },
     rotateRight: function() {
       return Tetromino.T_SHAPE270;
