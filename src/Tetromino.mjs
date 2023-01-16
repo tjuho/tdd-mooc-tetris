@@ -112,4 +112,32 @@ export class Tetromino {
       return res;
     }
   };
+  static I_SHAPE = {
+    color: "I",
+    size: 4,
+    matrix: [[false, false, false, false], [true, true, true, true], [false, false, false, false], [false, false, false, false]],
+    hasBlock: function(x,y) {
+      return this.matrix[y][x];
+    },
+    rotateRight: function() {
+      return Tetromino.T_SHAPE270;
+    },
+    rotateLeft: function() {
+      return Tetromino.T_SHAPE90;
+    },
+    toString: function() {
+      let res = "";
+      for (let r = 0; r < this.size; r++){
+        for (let c = 0; c < this.size; c++){
+          if (this.hasBlock(c,r)){
+            res += this.color;
+          } else {
+            res += ".";
+          }
+        }
+        res += "\n";
+      }
+      return res;
+    }
+  };
 }
