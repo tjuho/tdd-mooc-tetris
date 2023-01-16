@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Block } from "../src/Block.mjs";
 
+  /*
 describe("Falling blocks", () => {
   let board;
   beforeEach(() => {
@@ -46,8 +47,8 @@ describe("Falling blocks", () => {
       expect(after).to.equal(before);
     });
   });
-  /*
-  */
+  
+  
 
   describe("When a block reaches the bottom", () => {
     beforeEach(() => {
@@ -79,8 +80,6 @@ describe("Falling blocks", () => {
       expect(board.hasFalling(), "the block should stop moving").to.be.false;
     });
   });
-  /*
-  */
 
   describe("When a block lands on another block", () => {
     beforeEach(() => {
@@ -115,6 +114,5 @@ describe("Falling blocks", () => {
       expect(board.hasFalling(), "the block should stop moving").to.be.false;
     });
   });
-  /*
-  */
 });
+  */
