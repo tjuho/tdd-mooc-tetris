@@ -1,19 +1,5 @@
 import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
-  toStringHelper(color, size, matrix){
-    let res = "";
-    for (let r = 0; r < size; r++){
-      for (let c = 0; c < size; c++){
-        if (matrix[r][c]){
-          res += color;
-        } else {
-          res += ".";
-        }
-      }
-      res += "\n";
-    }
-    return res;
-  };
   static T_SHAPE = {
     color: "T",
     size: 3,
