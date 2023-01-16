@@ -18,7 +18,6 @@ export class RotatingShape {
         this.shape[r][c] = temp[r].charAt(c);
       }
     }
-    console.log(this.shape);
   }
   
   rotateRight(){ 

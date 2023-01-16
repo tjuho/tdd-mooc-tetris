@@ -1,4 +1,3 @@
-/*
 import { expect } from "chai";
 import { Tetromino } from "../src/Tetromino.mjs";
 
@@ -17,8 +16,11 @@ function distinctOrientations(shape) {
 
 describe("The T shape", () => {
   const shape = Tetromino.T_SHAPE;
+  console.log(Tetromino.jotain);
+  console.log(Tetromino.T_SHAPE.toString());
 
   it("initial orientation", () => {
+    console.log(shape.toString());
     expect(shape.toString()).to.equalShape(
       `.T.
        TTT
@@ -46,6 +48,7 @@ describe("The T shape", () => {
     expect(distinctOrientations(shape).size).to.equal(4);
   });
 });
+/*
 */
 
 /*

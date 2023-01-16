@@ -41,16 +41,12 @@ export class Board {
   
   tick(){
     if (!this.canFall()) {
-      console.log(this.blocky, this.blockx)
-      console.log(this.boardState);
       this.boardState[this.blocky][this.blockx] = this.block.color;
-      console.log(this.boardState);
       this.block = undefined;
       this.blocky = 0;
       this.blockx = parseInt(this.width/2);
     }
     this.blocky += 1;
-    console.log(this.toString());
   }
 
   toString() {
