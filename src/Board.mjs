@@ -21,15 +21,19 @@ export class Board {
     }
   }
   
-  canFall(){
+  canFall(x,y){
     if (!this.hasFalling()){
       return false;
     }
-    return this.height-1 > this.blocky && this.boardState[this.blocky+1][this.blockx] == ".";
+    return this.height-1 > y && this.isEmpty(x,y+1);
   }
   
+  isEmpty(x,y){
+    return !(this.boardState[y][x] == ".");
+  }    
+  
   hasFalling(){
-    return this.block != undefined;
+    return this.tetromino != undefined;
   }
   
   drop(block){
