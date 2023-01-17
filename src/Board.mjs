@@ -29,7 +29,7 @@ export class Board {
   }
   
   isEmpty(x,y){
-    return (this.boardState[y][x] == ".");
+    return x >= 0 && y >= 0 && x < this.width && y < this.height && (this.boardState[y][x] == ".");
   }    
   
   hasFalling(){
