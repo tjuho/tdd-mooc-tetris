@@ -71,6 +71,21 @@ export class Board {
     }    
   }
   
+  canMove(dx,dy){
+    if (this.hasFalling()){
+      let canmove = true
+      for (let y = 0; y < this.tetromino.size; y++){
+        for (let x = 0; x < this.tetromino.size; x++){
+          if (this.tetromino.matrix[y][x]){
+            canmove = canmove && this.isEmpty(this.tetrominox+x+dx, this.tetrominoy+y+dy);
+          }
+        }
+      }
+      return canmove;
+    }      
+    return false;
+  }
+  
   moveLeft(){
     if (this.hasFalling()){
       let canmove = true
