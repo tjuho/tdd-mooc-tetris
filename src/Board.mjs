@@ -25,7 +25,7 @@ export class Board {
     if (!this.hasFalling()){
       return false;
     }
-    return this.height-1 > y && this.isEmpty(x,y+1);
+    return this.isEmpty(x,y+1);
   }
   
   isEmpty(x,y){
