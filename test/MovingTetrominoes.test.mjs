@@ -93,7 +93,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   
-  xit("it can't move down when it's in the bottom of the play area", () => {
+  it("it can't move down when it's in the bottom of the play area", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveDown();
     board.moveDown();

@@ -102,6 +102,22 @@ export class Board {
       }
     }
   }
+  
+  moveDown(){
+    if (this.hasFalling()){
+      let canmove = true
+      for (let y = 0; y < this.tetromino.size; y++){
+        for (let x = 0; x < this.tetromino.size; x++){
+          if (this.tetromino.matrix[y][x]){
+            canmove = canmove && this.isEmpty(this.tetrominox+x, this.tetrominoy+y+1);
+          }
+        }
+      }
+      if (canmove){
+        this.tetrominoy += 1;
+      }
+    }
+  }
 
   toString() {
     let res = "";
