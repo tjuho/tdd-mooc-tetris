@@ -55,7 +55,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   
-  xit("it can't move left when next to left side of the play area", () => {
+  it("it can't move left when next to left side of the play area", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     board.moveLeft();
