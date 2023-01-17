@@ -47,13 +47,17 @@ export class Board {
   }
   
   tick(){
-    if (!this.canFall()) {
-      this.boardState[this.blocky][this.blockx] = this.block.color;
-      this.block = undefined;
-      this.blocky = 0;
-      this.blockx = parseInt(this.width/2);
+    canfall = true
+    for (let y = 0; y < this.tetromino.size; y++){
+      for (let x = 0; x < this.tetromino.size; x++){
+        if (this.tetromino[y][x]){
+          canfall = canfall && this.canFall(this.tetrominox+x, this.tetrominoy+y);
+        }
+      }
     }
-    this.blocky += 1;
+    if (canfall){
+      this.tetrominoy += 1;
+    }
   }
 
   toString() {
