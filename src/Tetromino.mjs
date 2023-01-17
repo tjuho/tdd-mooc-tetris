@@ -1,6 +1,7 @@
 import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
   static T_SHAPE = {
+    dropOffset: 0,
     color: "T",
     size: 3,
     matrix: [[false, true, false], [true, true, true],[false, false, false]],
@@ -113,6 +114,7 @@ export class Tetromino {
     }
   };
   static I_SHAPE = {
+    dropOffset: -1,
     color: "I",
     size: 4,
     matrix: [[false, false, false, false], [true, true, true, true], [false, false, false, false], [false, false, false, false]],
@@ -169,6 +171,7 @@ export class Tetromino {
     }
   };
   static O_SHAPE = {
+    dropOffset: 0,
     color: "O",
     size: 2,
     matrix: [[true, true], [true, true]],
@@ -197,6 +200,7 @@ export class Tetromino {
     }
   };
   static S_SHAPE = {
+    dropOffset: -1,
     color: "S",
     size: 3,
     matrix: [[false, false, false], [false, true, true],[true, true, false]],
@@ -253,6 +257,7 @@ export class Tetromino {
     }
   };
   static Z_SHAPE = {
+    dropOffset: -1,
     color: "Z",
     size: 3,
     matrix: [[false, false, false], [true, true, false],[false, true, true]],
@@ -309,6 +314,7 @@ export class Tetromino {
     }
   };
   static L_SHAPE = {
+    dropOffset: -1,
     color: "L",
     size: 3,
     matrix: [[false, false, false], [true, true, true],[true, false, false]],
@@ -421,6 +427,7 @@ export class Tetromino {
     }
   };
   static M_SHAPE = {
+    dropOffset: -1,
     color: "M",
     size: 3,
     matrix: [[false, false, false], [true, true, true],[false, false, true]],
