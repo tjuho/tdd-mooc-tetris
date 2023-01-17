@@ -73,7 +73,7 @@ export class Board {
   
   canMove(dx,dy){
     if (this.hasFalling()){
-      let canmove = true
+      let canmove = true;
       for (let y = 0; y < this.tetromino.size; y++){
         for (let x = 0; x < this.tetromino.size; x++){
           if (this.tetromino.matrix[y][x]){
@@ -87,50 +87,21 @@ export class Board {
   }
   
   moveLeft(){
-    if (this.hasFalling()){
-      let canmove = true
-      for (let y = 0; y < this.tetromino.size; y++){
-        for (let x = 0; x < this.tetromino.size; x++){
-          if (this.tetromino.matrix[y][x]){
-            canmove = canmove && this.isEmpty(this.tetrominox+x-1, this.tetrominoy+y);
-          }
-        }
-      }
-      if (canmove){
-        this.tetrominox -= 1;
-      }
+    if (this.canMove(-1,0)) {
+      this.tetrominox -= 1;
     }
   }
+
   
   moveRight(){
-    if (this.hasFalling()){
-      let canmove = true
-      for (let y = 0; y < this.tetromino.size; y++){
-        for (let x = 0; x < this.tetromino.size; x++){
-          if (this.tetromino.matrix[y][x]){
-            canmove = canmove && this.isEmpty(this.tetrominox+x+1, this.tetrominoy+y);
-          }
-        }
-      }
-      if (canmove){
-        this.tetrominox += 1;
-      }
+    if (this.canMove(1,0)) {
+      this.tetrominox += 1;
     }
   }
   
   moveDown(){
-    if (this.hasFalling()){
-      let canmove = true
-      for (let y = 0; y < this.tetromino.size; y++){
-        for (let x = 0; x < this.tetromino.size; x++){
-          if (this.tetromino.matrix[y][x]){
-            canmove = canmove && this.isEmpty(this.tetrominox+x, this.tetrominoy+y+1);
-          }
-        }
-      }
-      if (canmove){
-        this.tetrominoy += 1;
-      }
+    if (this.canMove(0,1)) {
+      this.tetrominoy += 1;
     }
   }
 
