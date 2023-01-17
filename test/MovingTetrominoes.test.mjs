@@ -114,7 +114,7 @@ describe("Moving tetrominoes", () => {
     );
   });
   
-  xit("it can't move down when there is another tetromino under it", () => {
+  it("it can't move down when there is another tetromino under it", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
