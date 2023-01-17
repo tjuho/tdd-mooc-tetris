@@ -16,7 +16,7 @@ describe("Moving tetrominoes", () => {
 
   it("start from the top middle", () => {
     board.drop(Tetromino.T_SHAPE);
-
+    board
     expect(board.toString()).to.equalShape(
       `....T.....
        ...TTT....
@@ -27,8 +27,9 @@ describe("Moving tetrominoes", () => {
     );
   });
 
-  xit("it can move left", () => {
+  it("it can move left", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveLeft();
 
     expect(board.toString()).to.equalShape(
       `...T......
