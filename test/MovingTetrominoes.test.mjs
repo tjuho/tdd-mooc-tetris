@@ -41,8 +41,9 @@ describe("Moving tetrominoes", () => {
     );
   });
   
-  xit("it can move right", () => {
+  it("it can move right", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveRight();
 
     expect(board.toString()).to.equalShape(
       `.....T....
@@ -56,6 +57,12 @@ describe("Moving tetrominoes", () => {
   
   xit("it can't move left when next to left side of the play area", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
 
     expect(board.toString()).to.equalShape(
       `.T........
@@ -69,6 +76,12 @@ describe("Moving tetrominoes", () => {
     
   xit("it can't move right when next to right side of the play area", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
 
     expect(board.toString()).to.equalShape(
       `........T.
@@ -82,6 +95,14 @@ describe("Moving tetrominoes", () => {
   
   xit("it can't move down when it's in the bottom of the play area", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
 
     expect(board.toString()).to.equalShape(
       `..........
@@ -97,6 +118,11 @@ describe("Moving tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
 
     expect(board.toString()).to.equalShape(
       `..........

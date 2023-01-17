@@ -74,6 +74,10 @@ export class Board {
   moveLeft(){
     this.tetrominox -= 1;
   }
+  
+  moveRight(){
+    this.tetrominox += 1;
+  }
 
   toString() {
     let res = "";
