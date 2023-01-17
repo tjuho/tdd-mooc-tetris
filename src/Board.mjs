@@ -88,7 +88,19 @@ export class Board {
   }
   
   moveRight(){
-    this.tetrominox += 1;
+    if (this.hasFalling()){
+      let canmove = true
+      for (let y = 0; y < this.tetromino.size; y++){
+        for (let x = 0; x < this.tetromino.size; x++){
+          if (this.tetromino.matrix[y][x]){
+            canmove = canmove && this.isEmpty(this.tetrominox+x+1, this.tetrominoy+y);
+          }
+        }
+      }
+      if (canmove){
+        this.tetrominox += 1;
+      }
+    }
   }
 
   toString() {
