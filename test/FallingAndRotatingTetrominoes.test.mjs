@@ -71,7 +71,29 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  it("can rotate when next to left wall when there is room to bounce", () => {
+  it("can rotate left when next to left wall when there is room to bounce", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick()
+    board.rotateLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       IIII......
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
+    
+  it("can rotate right when next to left wall when there is room to bounce", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
@@ -93,7 +115,29 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  it("can rotate when next to right wall when there is room to bounce", () => {
+  it("can rotate left when next to right wall when there is room to bounce", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick()
+    board.rotateLeft();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ......IIII
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
+  
+  it("can rotate right when next to right wall when there is room to bounce", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
