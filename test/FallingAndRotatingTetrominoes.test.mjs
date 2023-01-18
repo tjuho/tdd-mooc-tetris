@@ -57,7 +57,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can't rotate when there is no room in the top", () => {
+  it("can't rotate when there is no room in the top", () => {
     board.drop(Tetromino.I_SHAPE);
     board.rotateRight();
 
@@ -71,7 +71,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can not rotate when next to left wall", () => {
+  it("can not rotate when next to left wall", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
@@ -93,7 +93,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can not rotate when next to right wall", () => {
+  it("can not rotate when next to right wall", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
@@ -115,7 +115,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can not rotate when on the last row", () => {
+  it("can not rotate when on the last row", () => {
     board.drop(Tetromino.I_SHAPE);
     board.moveDown();
     board.moveDown();
@@ -136,7 +136,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can not rotate when another piece blocks rotation", () => {
+  it("can not rotate when another piece blocks rotation", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.I_SHAPE);
