@@ -30,7 +30,7 @@ describe("Falling and rotating tetrominoes", () => {
   it("can rotate right", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick();
-    board.rotateRight();
+    board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
       `.....I....
@@ -71,7 +71,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  it("can not rotate when next to left wall", () => {
+  it("can rotate when next to left wall when there is room to bounce", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
@@ -81,19 +81,19 @@ describe("Falling and rotating tetrominoes", () => {
     board.moveLeft();
     board.moveLeft();
     board.moveLeft();
-    board.rotateLeft();
+    board.rotateRight();
 
     expect(board.toString()).to.equalShape(
-      `I.........
-       I.........
-       I.........
-       I.........
+      `..........
+       IIII......
+       ..........
+       ..........
        ..........
        ..........`
     );
   });
   
-  it("can not rotate when next to right wall", () => {
+  it("can rotate when next to right wall when there is room to bounce", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
@@ -103,13 +103,13 @@ describe("Falling and rotating tetrominoes", () => {
     board.moveRight();
     board.moveRight();
     board.moveRight();
-    board.rotateLeft();
+    board.rotateRight();
 
     expect(board.toString()).to.equalShape(
-      `.........I
-       .........I
-       .........I
-       .........I
+      `..........
+       ......IIII
+       ..........
+       ..........
        ..........
        ..........`
     );
@@ -124,7 +124,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.moveDown();
     board.moveDown();
     board.moveDown();
-    board.rotateRight();
+    board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
       `..........
@@ -147,7 +147,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.moveDown();
     board.moveDown();
     board.moveDown();
-    board.rotateRight();
+    board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
       `..........
