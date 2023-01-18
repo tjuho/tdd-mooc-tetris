@@ -70,6 +70,18 @@ export class Board {
       }
     }    
   }
+    
+  getTetrominoBlockCoordinates(tetromino){
+    let coordinates = [];
+    for (let y = 0; y < tetromino.size; y++){
+      for (let x = 0; x < tetromino.size; x++){
+        if (tetromino.matrix[y][x]){
+          coordinates.push([x, y]);
+        }
+      }
+    }
+    return coordinates; 
+  };    
   
   canMove(dx,dy){
     if (this.hasFalling()){
@@ -102,6 +114,21 @@ export class Board {
   moveDown(){
     if (this.canMove(0,1)) {
       this.tetrominoy += 1;
+    }
+  }
+  
+  rotateRight(){
+    if (!this.hasFalling){
+      return;
+    }
+    let rotatedTetromino = this.tetromino.rotateRight();
+    let coords = this.getTetrominoBlockCoordinates(rotatedTetromino);
+    let canrotate = true;
+    for (let i=0; i < coords.length; i++){
+      canrotate = canrotate && this.isEmpty(coords[i][0]+this.tetrominox, coords[i][1]+this.tetrominoy);
+    }
+    if (canrotate){
+      this.tetromino = rotatedTetromino;
     }
   }
 

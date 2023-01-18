@@ -27,6 +27,36 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
+  it("can rotate right", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `.....I....
+       .....I....
+       .....I....
+       .....I....
+       ..........
+       ..........`
+    );
+  });
+  
+  xit("can rotate left", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateLeft();
+    
+    expect(board.toString()).to.equalShape(
+      `.....I....
+       .....I....
+       .....I....
+       .....I....
+       ..........
+       ..........`
+    );
+  });
+  
   xit("can't rotate when there is no room in the top", () => {
     board.drop(Tetromino.I_SHAPE);
     board.rotateRight();

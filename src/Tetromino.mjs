@@ -1,17 +1,5 @@
 import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
-    
-  getTetrominoBlockCoordinates(tetromino){
-    let coordinates = [];
-    for (let y = 0; y < tetromino.size; y++){
-      for (let x = 0; x < tetromino.size; x++){
-        if (tetromino.matrix[y][x]){
-          coordinates.push((x, y));
-        }
-      }
-    }
-    return coordinates; 
-  };    
   
   static T_SHAPE = {
     dropOffset: 0,
