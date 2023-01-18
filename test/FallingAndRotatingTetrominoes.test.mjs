@@ -42,7 +42,7 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
-  xit("can rotate left", () => {
+  it("can rotate left", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick();
     board.rotateLeft();

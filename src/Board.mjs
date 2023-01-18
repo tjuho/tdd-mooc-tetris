@@ -117,6 +117,21 @@ export class Board {
     }
   }
   
+  rotateLeft(){
+    if (!this.hasFalling){
+      return;
+    }
+    let rotatedTetromino = this.tetromino.rotateLeft();
+    let coords = this.getTetrominoBlockCoordinates(rotatedTetromino);
+    let canrotate = true;
+    for (let i=0; i < coords.length; i++){
+      canrotate = canrotate && this.isEmpty(coords[i][0]+this.tetrominox, coords[i][1]+this.tetrominoy);
+    }
+    if (canrotate){
+      this.tetromino = rotatedTetromino;
+    }
+  }
+
   rotateRight(){
     if (!this.hasFalling){
       return;
