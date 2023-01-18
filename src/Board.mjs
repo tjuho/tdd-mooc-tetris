@@ -118,7 +118,7 @@ export class Board {
   }
   
   rotateLeft(){
-    if (!this.hasFalling){
+    if (!this.hasFalling()){
       return;
     }
     let rotatedTetromino = this.tetromino.rotateLeft();
@@ -133,7 +133,7 @@ export class Board {
   }
 
   rotateRight(){
-    if (!this.hasFalling){
+    if (!this.hasFalling()){
       return;
     }
     let rotatedTetromino = this.tetromino.rotateRight();

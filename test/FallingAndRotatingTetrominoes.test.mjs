@@ -158,6 +158,24 @@ describe("Falling and rotating tetrominoes", () => {
        ...TTT....`
     );
   });
+  
+  it("can not rotate after hitting ground", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateLeft();
+    fallToBottom(board);
+    board.rotateLeft();
+   
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       .....I....
+       .....I....
+       .....I....
+       .....I....`
+    );
+  });
+  
 });
 /*
 */
