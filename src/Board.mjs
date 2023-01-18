@@ -41,7 +41,7 @@ export class Board {
       throw "already falling"
     } else {
       this.tetromino = tetromino
-      this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2) - 1;
+      this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2 - 0.5) - 1;
       this.tetrominoy = tetromino.dropOffset;
     }
   }
