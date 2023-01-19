@@ -195,6 +195,20 @@ export class Board {
         fullRows.push(r);
       }
     }
+    if (fullRows.length > 0){
+      let newstate = [];
+      for (let i=0; i<fullRows.length; i++){
+        newstate.push(Array(this.width).fill("."));
+      }
+      for (let r=0; r < this.height; r++){
+        if (fullRows.length == 0 || fullRows[0] != r){
+          newstate.push(this.boardState[r]);
+        } else {
+          fullRows.shift();
+        }
+      }
+      this.boardState = newstate;
+    }
     for (let i = 0; i < fullRows.length; i++){
       this.clearRow(fullRows[i]);
     }
