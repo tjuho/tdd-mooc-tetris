@@ -182,7 +182,31 @@ export class Board {
       }      
     }
   }
-
+  
+  removeFullRows(){
+    let fullRows = [];
+    for (let r = 0; r < this.height; r++){
+      let isfull = true;
+      for (let c = 0; c < this.width; c++){
+        if (this.isEmpty(c,r)){
+          isfull = false; 
+          break;
+        }
+      }
+      if (isfull){
+        fullRows.push(r);
+      }
+    }
+    for (let i = 0; i < fullRows.length; i++){
+      this.clearRow(fullRows[i]);
+    }
+    return fullRows.length;
+  }
+  
+  clearRow(row){
+    this.boardState[row] = Array(width).fill(".")
+  }
+  
   toString() {
     let res = "";
     for (let r = 0; r < this.height; r++){
