@@ -2,10 +2,10 @@ import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
   
   static T_SHAPE = {
-    dropOffset: 0,
+    dropOffset: -1,
     color: "T",
     size: 3,
-    matrix: [[false, true, false], [true, true, true],[false, false, false]],
+    matrix: [[false, false, false], [true, true, true],[false, true, false]],
     hasBlock: function(x,y) {
       return this.matrix[y][x];
     },
@@ -33,7 +33,7 @@ export class Tetromino {
   static T_SHAPE270 = {
     color: "T",
     size: 3,
-    matrix: [[false, true, false], [false, true, true],[false, true, false]],
+    matrix: [[false, true, false], [true, true, false],[false, true, false]],
     hasBlock: function(x,y) {
       return this.matrix[y][x];
     },
@@ -61,7 +61,7 @@ export class Tetromino {
   static T_SHAPE90 = {
     color: "T",
     size: 3,
-    matrix: [[false, true, false], [true, true, false],[false, true, false]],
+    matrix: [[false, true, false], [false, true, true],[false, true, false]],
     hasBlock: function(x,y) {
       return this.matrix[y][x];
     },
@@ -89,7 +89,7 @@ export class Tetromino {
   static T_SHAPE180 = {
     color: "T",
     size: 3,
-    matrix: [[true, true, true], [false, true, false],[false, false, false]],
+    matrix: [[false, false, false], [false, true, false],[true, true, true]],
     hasBlock: function(x,y) {
       return this.matrix[y][x];
     },
