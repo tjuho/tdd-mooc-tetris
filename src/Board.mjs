@@ -14,10 +14,7 @@ export class Board {
     this.height = height;
     this.boardState = [];
     for (let r = 0; r < this.height; r++){
-      this.boardState[r] = [];
-      for (let c = 0; c < this.width; c++){
-        this.boardState[r][c] = "."
-      }
+      this.boardState[r] = Array(width).fill(".");
     }
   }
   
