@@ -7,6 +7,21 @@ function fallToBottom(board) {
     board.tick();
   }
 }
+function moveFarLeft(board) {
+  for (let i = 0; i < 10; i++) {
+    board.moveLeft();
+  }
+}
+function moveFarRight(board) {
+  for (let i = 0; i < 10; i++) {
+    board.moveRight();
+  }
+}
+function moveAllwayDown(board) {
+  for (let i = 0; i < 10; i++) {
+    board.moveDown();
+  }
+}
 
 describe("Falling and rotating tetrominoes", () => {
   let board;
@@ -75,12 +90,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
+    moveFarLeft(board);
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
@@ -97,12 +107,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
+    moveFarLeft(board);
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
@@ -119,12 +124,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
+    moveFarRight(board);
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
@@ -141,12 +141,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.rotateLeft();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
+    moveFarRight(board);
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
@@ -161,13 +156,7 @@ describe("Falling and rotating tetrominoes", () => {
   
   it("can not rotate when on the last row", () => {
     board.drop(Tetromino.I_SHAPE);
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
+    moveAllwayDown(board);
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
@@ -184,13 +173,7 @@ describe("Falling and rotating tetrominoes", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.I_SHAPE);
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
-    board.moveDown();
+    moveAllwayDown(board);
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
@@ -217,6 +200,31 @@ describe("Falling and rotating tetrominoes", () => {
        .....I....
        .....I....
        .....I....`
+    );
+  });
+    
+  it("can not bounce from another tetromino", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateLeft();
+    moveFarRight(board);
+    fallToBottom(board);
+    board.rotateLeft();
+     
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateLeft();
+    moveFarRight(board);
+    moveAllwayDown(board);
+    board.rotateLeft();
+   
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ........II
+       ........II
+       ........II
+       ........II`
     );
   });
   
