@@ -82,10 +82,16 @@ describe("Clearing rows", () => {
   
   it("rows collapse after clearing full row", () => {
     board.drop(Tetromino.T_SHAPE);
+    board.tick();
     moveFarLeft(board);
+    board.rotateRight();
+    board.rotateRight();
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
     moveFarRight(board);
+    board.tick();
+    board.rotateRight();
+    board.rotateRight();
     fallToBottom(board);
     board.drop(Tetromino.I_SHAPE);
     board.tick();
