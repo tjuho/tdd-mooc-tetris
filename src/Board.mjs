@@ -130,16 +130,11 @@ export class Board {
     if (canrotate){
       this.tetromino = rotatedTetromino;
     } else {
-      console.log(minx,maxx);
-      console.log(coords);
-      console.log("can't rotate",this.width-maxx-1);
       this.tetromino = rotatedTetromino;
       if (maxx >= this.width && this.canMove(this.width-maxx-1,0)){
-        console.log("move x",this.width-maxx-1);
         this.tetrominox = this.tetrominox - (maxx-this.width+1);
       } else {
         if (minx < 0 && this.canMove(-minx,0)){
-          console.log("move x",-minx);
           this.tetrominox = this.tetrominox - minx;
         } else {
           this.tetromino = this.tetromino.rotateRight();
@@ -163,16 +158,11 @@ export class Board {
     if (canrotate){
       this.tetromino = rotatedTetromino;
     } else {
-      console.log(minx,maxx);
-      console.log(coords);
-      console.log("can't rotate",this.width-maxx-1);
       this.tetromino = rotatedTetromino;
       if (maxx >= this.width && this.canMove(this.width-maxx-1,0)){
-        console.log("move x",this.width-maxx-1);
         this.tetrominox = this.tetrominox - (maxx-this.width+1);
       } else {
         if (minx < 0 && this.canMove(-minx,0)){
-          console.log("move x",-minx);
           this.tetrominox = this.tetrominox - minx;
         } else {
           this.tetromino = this.tetromino.rotateLeft();
