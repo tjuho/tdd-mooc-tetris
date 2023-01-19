@@ -63,6 +63,7 @@ export class Board {
             }
           }
         }
+        this.removeFullRows();
         this.tetromino = undefined
       }
     }    
@@ -201,7 +202,7 @@ export class Board {
   }
   
   clearRow(row){
-    this.boardState[row] = Array(width).fill(".")
+    this.boardState[row] = Array(this.width).fill(".")
   }
   
   toString() {
