@@ -8,6 +8,7 @@ export class Board {
   blocky;
   blockx;
   boardState;
+  rowObservers;
   
   constructor(width, height) {
     this.width = width;
@@ -16,6 +17,7 @@ export class Board {
     for (let r = 0; r < this.height; r++){
       this.boardState[r] = Array(width).fill(".");
     }
+    this.rowObservers = [];
   }
   
   canFall(x,y){
