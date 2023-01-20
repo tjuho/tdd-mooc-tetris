@@ -31,6 +31,6 @@ describe("Drop Random Tetrominoes", () => {
       const one = [...shufflebag.bag];
       shufflebag.shuffle();
       const two = [...shufflebag.bag];
-      expect([...shufflebag.bag]).to.not.eql([...one]);
+      expect(two).to.not.eql(one);
   });
 });
