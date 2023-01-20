@@ -12,11 +12,13 @@ export class Score {
       case 1: return 40 * (this.level + 1);
       case 2: return 100 * (this.level + 1);
       case 3: return 300 * (this.level + 1); 	
-      default: return 1200 * (this.level + 1);
+      case 4: return 1200 * (this.level + 1);
+      default: return 0;
     }
+  }
     
   update(rows){
-    this.score += calculateScore(rows);
+    this.score += this.calculateScore(rows);
   }
 
 }

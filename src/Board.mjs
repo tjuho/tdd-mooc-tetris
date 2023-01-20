@@ -188,6 +188,7 @@ export class Board {
         fullRows.push(r);
       }
     }
+    let count = fullRows.length;
     if (fullRows.length > 0){
       let newstate = [];
       for (let i=0; i<fullRows.length; i++){
@@ -205,7 +206,7 @@ export class Board {
     for (let i = 0; i < fullRows.length; i++){
       this.clearRow(fullRows[i]);
     }
-    return fullRows.length;
+    return count;
   }
   
   clearRow(row){
@@ -217,8 +218,8 @@ export class Board {
   }
   
   callRowObservers(rows){
-    for (let i=0; i<this.rowObservers; i++){
-      this.rowObservers.update(rows);
+    for (let i=0; i<this.rowObservers.length; i++){
+      this.rowObservers[i].update(rows);
     }
   }
   
