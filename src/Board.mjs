@@ -212,6 +212,10 @@ export class Board {
     this.boardState[row] = Array(this.width).fill(".")
   }
   
+  addRowObserver(obj){
+    this.rowObservers.push(obj);
+  }
+  
   callRowObservers(rows){
     for (let i=0; i<this.rowObservers; i++){
       this.rowObservers.update(rows);
