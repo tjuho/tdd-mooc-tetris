@@ -65,7 +65,8 @@ export class Board {
             }
           }
         }
-        this.removeFullRows();
+        let count = this.removeFullRows();
+        this.callRowObservers(count);
         this.tetromino = undefined
       }
     }    
