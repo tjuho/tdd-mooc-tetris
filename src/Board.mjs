@@ -211,6 +211,12 @@ export class Board {
     this.boardState[row] = Array(this.width).fill(".")
   }
   
+  callRowObservers(rows){
+    for (let i=0; i<this.rowObservers; i++){
+      this.rowObservers.update(rows);
+    }
+  }
+  
   toString() {
     let res = "";
     for (let r = 0; r < this.height; r++){
