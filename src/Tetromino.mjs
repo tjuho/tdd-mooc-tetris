@@ -1,4 +1,3 @@
-import { RotatingShape } from './RotatingShape.mjs'
 export class Tetromino {
   
   static T_SHAPE = {
@@ -541,3 +540,5 @@ export class Tetromino {
     }
   };
 }
+
+export const T_SHAPE = Tetromino.T_SHAPE;
