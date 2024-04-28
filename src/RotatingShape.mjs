@@ -4,7 +4,7 @@ export class RotatingShape {
   width;
 
   constructor(shape) {
-    let temp = shape.replaceAll(' ', '').split('\n');
+    let temp = shape.replace(/[ \n]+/g, '\n').split('\n');
     this.height = temp.length;
     if (this.height == 0){
       this.width = 0
