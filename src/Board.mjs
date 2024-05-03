@@ -9,6 +9,7 @@ export class Board {
   blockx;
   boardState;
   rowObservers;
+  gameOverObservers;
   
   constructor(width, height) {
     this.width = width;
@@ -18,6 +19,7 @@ export class Board {
       this.boardState[r] = Array(width).fill(".");
     }
     this.rowObservers = [];
+    this.gameOverObservers = [];
   }
   
   canFall(x,y){
@@ -42,6 +44,21 @@ export class Board {
       this.tetromino = tetromino
       this.tetrominox = parseInt(this.width/2) - parseInt(tetromino.size/2 - 0.5) - (this.width % 2 === 0 ? 1 : 0);
       this.tetrominoy = tetromino.dropOffset;
+      const matrix = tetromino.matrix
+      const size = tetromino.size
+      for (let x = 0; x < size; x++){
+        for (let y = 0; y < size; y++){
+          const c = x+this.tetrominox;
+          const r = y+this.tetrominoy;
+          if (r >= 0 && c >= 0 && matrix[y][x] && !this.isEmpty(c,r)){
+            // can't drop tetromino -> game over
+            console.log('check game over:', x,y, this.boardState[x+this.tetrominox][y+this.tetrominoy], matrix[x][y] )
+            this.callGameOverObservers(true)
+            x = size;
+            break;
+          }
+        }
+      }
     }
   }
   
@@ -225,6 +242,20 @@ export class Board {
 
   removeRowObservers(){
     this.rowObservers = [];
+  }
+
+  addGameOverObserver(obj){
+    this.gameOverObservers.push(obj);
+  }
+  
+  callGameOverObservers(isOver){
+    for (let i=0; i<this.gameOverObservers.length; i++){
+      this.gameOverObservers[i].update(isOver);
+    }
+  }
+
+  removeGameOverObservers(){
+    this.gameOverObservers = [];
   }
   
   toString() {
