@@ -19,6 +19,6 @@ export class Score {
     
   update(rows){
     this.score += this.calculateScore(rows);
+    this.level = (this.score / 2000) | 0; // float to int trick
   }
-
 }

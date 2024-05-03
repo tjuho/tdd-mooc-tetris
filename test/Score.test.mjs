@@ -118,6 +118,50 @@ describe("Scoring", () => {
        */
   });
     
+  it("after clearing enough rows the level should increase", () => {
+    for (let i=0; i < 2; i++){
+      for (let i=0; i < 4; i++){
+        board.drop(Tetromino.I_SHAPE);
+        board.tick();
+        board.rotateLeft();
+        moveFarRight(board);
+        fallToBottom(board);
+      }
+      for (let i=0; i < 5; i++){
+        board.drop(Tetromino.I_SHAPE);
+        board.tick();
+        board.rotateLeft();
+        moveFarLeft(board);
+        fallToBottom(board);
+      }     
+      /*
+      expect(board.toString()).to.equalShape(
+        `..........
+        ..........
+        IIIII.IIII
+        IIIII.IIII
+        IIIII.IIII
+        IIIII.IIII`
+      );
+      */
+      board.drop(Tetromino.I_SHAPE);
+      board.tick();
+      board.rotateLeft();
+      fallToBottom(board);
+    }
+    expect(score.level).to.equal(1);
+    /*
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+    */
+  });
+    
 });
 /*
 */
