@@ -260,7 +260,6 @@ export class Board {
         } 
       }
     }
-    console.log('boardmjs getstate', res)
     return res;
   }
 }
