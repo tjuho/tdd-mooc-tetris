@@ -47,7 +47,7 @@ export class Board {
   
   tick(){
     if (this.hasFalling()){
-      let canfall = true
+      let canfall = true;
       for (let y = 0; y < this.tetromino.size; y++){
         for (let x = 0; x < this.tetromino.size; x++){
           if (this.tetromino.matrix[y][x]){
@@ -222,6 +222,10 @@ export class Board {
       this.rowObservers[i].update(rows);
     }
   }
+
+  removeRowObservers(){
+    this.rowObservers = [];
+  }
   
   toString() {
     let res = "";
@@ -237,6 +241,26 @@ export class Board {
       }
       res += "\n";
     }
+    return res;
+  }
+
+  getState(){
+    let res = [];
+    for (let r = 0; r < this.height; r++){
+      res[r] = Array(this.width).fill(".");
+    }
+    for (let r = 0; r < this.height; r++){
+      for (let c = 0; c < this.width; c++){
+        if (this.hasFalling() && r >= this.tetrominoy && r < this.tetrominoy + this.tetromino.size 
+        && c >= this.tetrominox && c < this.tetrominox + this.tetromino.size 
+        && this.tetromino.matrix[r-this.tetrominoy][c-this.tetrominox]){
+          res[r][c] = this.tetromino.color;
+        } else {
+          res[r][c] = this.boardState[r][c];
+        } 
+      }
+    }
+    console.log('boardmjs getstate', res)
     return res;
   }
 }
