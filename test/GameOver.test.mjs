@@ -17,7 +17,6 @@ describe("Game Over", () => {
     observer = { 
       gameOver: false,
       update: function(isOver) {
-        console.log('call update function')
         this.gameOver = isOver;
       }
     };

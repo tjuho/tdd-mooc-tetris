@@ -61,13 +61,6 @@ export class Board {
           const r = y + this.tetrominoy;
           if (r >= 0 && c >= 0 && matrix[y][x] && !this.isEmpty(c, r)) {
             // can't drop tetromino -> game over
-            console.log(
-              "check game over:",
-              x,
-              y,
-              this.boardState[x + this.tetrominox][y + this.tetrominoy],
-              matrix[x][y]
-            );
             this.callGameOverObservers(true);
             x = size;
             break;
@@ -133,6 +126,12 @@ export class Board {
       return canmove;
     }
     return false;
+  }
+
+  fallDown(){
+    while(this.canMove(0,1)){
+      this.moveDown();
+    }
   }
 
   moveLeft() {

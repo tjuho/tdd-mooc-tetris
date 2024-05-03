@@ -169,6 +169,20 @@ describe("Falling and rotating tetrominoes", () => {
     );
   });
   
+  it("fall down tetromino", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.fallDown();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ...IIII...`
+    );
+  });
+  
   it("can not rotate when another piece blocks rotation", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
