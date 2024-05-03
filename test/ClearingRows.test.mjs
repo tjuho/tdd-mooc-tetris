@@ -17,11 +17,6 @@ function moveFarRight(board) {
     board.moveRight();
   }
 }
-function moveAllwayDown(board) {
-  for (let i = 0; i < 10; i++) {
-    board.moveDown();
-  }
-}
 
 describe("Clearing rows", () => {
   let board;

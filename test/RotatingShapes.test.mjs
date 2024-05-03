@@ -32,8 +32,6 @@ describe("Rotating 3x3 shape", () => {
     );
   });
 });
-/*
-*/
 
 describe("Rotating 5x5 shape", () => {
   const shape = new RotatingShape(
@@ -74,5 +72,3 @@ describe("Rotating 5x5 shape", () => {
     );
   });
 });
-/*
-*/

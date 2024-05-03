@@ -135,5 +135,3 @@ describe("Moving tetrominoes", () => {
   });
 
 });
-/*
-*/
